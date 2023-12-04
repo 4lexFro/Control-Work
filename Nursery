@@ -36,3 +36,188 @@ alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork/Nursery$ mv animals human_fri
 
 alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork/Nursery$ mv human_friends /home/alexfro/GeekBrains/ControlWork/Nursery/New
 
+3. Подключить дополнительный репозиторий MySQL. Установить любой пакет
+из этого репозитория.
+
+3. Подключить дополнительный репозиторий MySQL. Установить любой пакет
+из этого репозитория.
+
+alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork$ sudo wget https://dev.mysql.com/get/mysql-apt-config_0.8.28-1_all.deb
+--2023-12-04 19:49:17--  https://dev.mysql.com/get/mysql-apt-config_0.8.28-1_all.deb
+Распознаётся dev.mysql.com (dev.mysql.com)… 92.123.206.112, 2a02:2d8:3:9a5::2e31, 2a02:2d8:3:9a9::2e31
+Подключение к dev.mysql.com (dev.mysql.com)|92.123.206.112|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 302 Moved Temporarily
+Адрес: https://repo.mysql.com//mysql-apt-config_0.8.28-1_all.deb [переход]
+--2023-12-04 19:49:18--  https://repo.mysql.com//mysql-apt-config_0.8.28-1_all.deb
+Распознаётся repo.mysql.com (repo.mysql.com)… 104.81.113.179, 2a02:26f0:9500:b8a::1d68, 2a02:26f0:9500:b83::1d68
+Подключение к repo.mysql.com (repo.mysql.com)|104.81.113.179|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 200 OK
+Длина: 18124 (18K) [application/x-debian-package]
+Сохранение в: ‘mysql-apt-config_0.8.28-1_all.deb’
+
+mysql-apt-config_0.8.28-1_ 100%[=====================================>]  17,70K  --.-KB/s    за 0,003s  
+
+2023-12-04 19:49:19 (5,03 MB/s) - ‘mysql-apt-config_0.8.28-1_all.deb’ сохранён [18124/18124]
+
+alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork$ sudo dpkg -i mysql-apt-config_0.8.28-1_all.deb
+Выбор ранее не выбранного пакета mysql-apt-config.
+(Чтение базы данных … на данный момент установлено 230812 файлов и каталогов.)
+Подготовка к распаковке mysql-apt-config_0.8.28-1_all.deb …
+Распаковывается mysql-apt-config (0.8.28-1) …
+Настраивается пакет mysql-apt-config (0.8.28-1) …
+
+alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork$ sudo apt-get update
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+Пол:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]                            
+Пол:3 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]                             
+Сущ:4 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease                                   
+Сущ:5 https://download.docker.com/linux/ubuntu jammy InRelease                                        
+Пол:6 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe i386 Packages [671 kB]               
+Игн:7 https://ppa.launchpadcontent.net/alexx2000/doublecmd/ubuntu jammy InRelease                     
+Пол:8 http://repo.mysql.com/apt/ubuntu jammy InRelease [20,2 kB]                                      
+Сущ:9 https://ppa.launchpadcontent.net/rvm/smplayer/ubuntu jammy InRelease                            
+Ошб:10 https://ppa.launchpadcontent.net/alexx2000/doublecmd/ubuntu jammy Release                      
+  404  Not Found [IP: 185.125.190.80 443]
+Пол:11 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1 011 kB]           
+Сущ:12 https://deb.opera.com/opera-stable stable InRelease                                            
+Пол:13 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [224 kB]             
+Пол:14 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.0 Sources [963 B]                               
+Пол:15 http://repo.mysql.com/apt/ubuntu jammy/mysql-apt-config i386 Packages [565 B]                  
+Пол:16 http://repo.mysql.com/apt/ubuntu jammy/mysql-apt-config amd64 Packages [565 B]
+Пол:17 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.0 amd64 Packages [12,6 kB]
+Пол:18 http://repo.mysql.com/apt/ubuntu jammy/mysql-tools i386 Packages [457 B]
+Пол:19 http://repo.mysql.com/apt/ubuntu jammy/mysql-tools amd64 Packages [7 994 B]
+Игн:20 https://repo.vivaldi.com/stable/deb stable InRelease
+Игн:20 https://repo.vivaldi.com/stable/deb stable InRelease                                           
+Игн:20 https://repo.vivaldi.com/stable/deb stable InRelease                                           
+Сущ:21 https://repo.vivaldi.com/stable/deb stable Release                                             
+Чтение списков пакетов… Готово                                                                        
+E: Репозиторий «https://ppa.launchpadcontent.net/alexx2000/doublecmd/ubuntu jammy Release» не содержит файла Release.
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+
+alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork$ sudo apt-get install mysql-server --fix-missing
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово         
+Следующие пакеты устанавливались автоматически и больше не требуются:
+  libcgi-fast-perl libcgi-pm-perl libevent-core-2.1-7 libevent-pthreads-2.1-7 libfcgi-bin libfcgi-perl
+  libfcgi0ldbl libhtml-template-perl libprotobuf-lite23 libqt5pas1 libqt5x11extras5
+Для их удаления используйте «sudo apt autoremove».
+Будут установлены следующие дополнительные пакеты:
+  mysql-client mysql-common mysql-community-client mysql-community-client-core mysql-community-client-plugins
+  mysql-community-server mysql-community-server-core
+Следующие пакеты будут УДАЛЕНЫ:
+  mysql-client-8.0 mysql-client-core-8.0 mysql-server-8.0 mysql-server-core-8.0
+Следующие НОВЫЕ пакеты будут установлены:
+  mysql-client mysql-community-client mysql-community-client-core mysql-community-client-plugins
+  mysql-community-server mysql-community-server-core
+Следующие пакеты будут обновлены:
+  mysql-common mysql-server
+Обновлено 2 пакетов, установлено 6 новых пакетов, для удаления отмечено 4 пакетов, и 7 пакетов не обновлено.
+Необходимо скачать 30,9 MB архивов.
+После данной операции объём занятого дискового пространства возрастёт на 32,6 MB.
+Хотите продолжить? [Д/н] 
+Пол:1 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.0 amd64 mysql-server amd64 8.0.35-1ubuntu22.04 [66,6 kB]
+Пол:2 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.0 amd64 mysql-common amd64 8.0.35-1ubuntu22.04 [67,9 kB]
+Пол:3 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.0 amd64 mysql-community-client-plugins amd64 8.0.35-1ubuntu22.04 [1 443 kB]
+Пол:4 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.0 amd64 mysql-community-client-core amd64 8.0.35-1ubuntu22.04 [2 120 kB]
+Пол:5 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.0 amd64 mysql-community-client amd64 8.0.35-1ubuntu22.04 [2 195 kB]
+Пол:6 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.0 amd64 mysql-client amd64 8.0.35-1ubuntu22.04 [66,6 kB]
+Пол:7 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.0 amd64 mysql-community-server-core amd64 8.0.35-1ubuntu22.04 [24,8 MB]
+Пол:8 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.0 amd64 mysql-community-server amd64 8.0.35-1ubuntu22.04 [78,3 kB]
+Получено 30,9 MB за 8с (3 724 kB/s)                                                                                
+Предварительная настройка пакетов …
+(Чтение базы данных … на данный момент установлено 230817 файлов и каталогов.)
+Подготовка к распаковке …/mysql-server_8.0.35-1ubuntu22.04_amd64.deb …
+Распаковывается mysql-server (8.0.35-1ubuntu22.04) на замену (8.0.35-0ubuntu0.22.04.1) …
+(Чтение базы данных … на данный момент установлен 230821 файл и каталог.)
+Удаляется mysql-server-8.0 (8.0.35-0ubuntu0.22.04.1) …
+update-alternatives: используется /etc/mysql/my.cnf.fallback для предоставления /etc/mysql/my.cnf (my.cnf) в автоматическом режиме
+Удаляется mysql-client-8.0 (8.0.35-0ubuntu0.22.04.1) …
+Удаляется mysql-client-core-8.0 (8.0.35-0ubuntu0.22.04.1) …
+Удаляется mysql-server-core-8.0 (8.0.35-0ubuntu0.22.04.1) …
+(Чтение базы данных … на данный момент установлено 230618 файлов и каталогов.)
+Подготовка к распаковке …/0-mysql-common_8.0.35-1ubuntu22.04_amd64.deb …
+Распаковывается mysql-common (8.0.35-1ubuntu22.04) на замену (5.8+1.0.8) …
+Выбор ранее не выбранного пакета mysql-community-client-plugins.
+Подготовка к распаковке …/1-mysql-community-client-plugins_8.0.35-1ubuntu22.04_amd64.deb …
+Распаковывается mysql-community-client-plugins (8.0.35-1ubuntu22.04) …
+Выбор ранее не выбранного пакета mysql-community-client-core.
+Подготовка к распаковке …/2-mysql-community-client-core_8.0.35-1ubuntu22.04_amd64.deb …
+Распаковывается mysql-community-client-core (8.0.35-1ubuntu22.04) …
+Выбор ранее не выбранного пакета mysql-community-client.
+Подготовка к распаковке …/3-mysql-community-client_8.0.35-1ubuntu22.04_amd64.deb …
+Распаковывается mysql-community-client (8.0.35-1ubuntu22.04) …
+Выбор ранее не выбранного пакета mysql-client.
+Подготовка к распаковке …/4-mysql-client_8.0.35-1ubuntu22.04_amd64.deb …
+Распаковывается mysql-client (8.0.35-1ubuntu22.04) …
+Выбор ранее не выбранного пакета mysql-community-server-core.
+Подготовка к распаковке …/5-mysql-community-server-core_8.0.35-1ubuntu22.04_amd64.deb …
+Распаковывается mysql-community-server-core (8.0.35-1ubuntu22.04) …
+Выбор ранее не выбранного пакета mysql-community-server.
+Подготовка к распаковке …/6-mysql-community-server_8.0.35-1ubuntu22.04_amd64.deb …
+Распаковывается mysql-community-server (8.0.35-1ubuntu22.04) …
+Настраивается пакет mysql-common (8.0.35-1ubuntu22.04) …
+Устанавливается новая версия файла настройки /etc/mysql/conf.d/mysql.cnf …
+Устанавливается новая версия файла настройки /etc/mysql/my.cnf.fallback …
+Настраивается пакет mysql-community-server-core (8.0.35-1ubuntu22.04) …
+Настраивается пакет mysql-community-client-plugins (8.0.35-1ubuntu22.04) …
+Настраивается пакет mysql-community-client-core (8.0.35-1ubuntu22.04) …
+Настраивается пакет mysql-community-client (8.0.35-1ubuntu22.04) …
+Настраивается пакет mysql-client (8.0.35-1ubuntu22.04) …
+Настраивается пакет mysql-community-server (8.0.35-1ubuntu22.04) …
+Устанавливается новая версия файла настройки /etc/apparmor.d/usr.sbin.mysqld …
+Устанавливается новая версия файла настройки /etc/mysql/mysql.cnf …
+Устанавливается новая версия файла настройки /etc/mysql/mysql.conf.d/mysqld.cnf …
+update-alternatives: используется /etc/mysql/mysql.cnf для предоставления /etc/mysql/my.cnf (my.cnf) в автоматическом режиме
+Настраивается пакет mysql-server (8.0.35-1ubuntu22.04) …
+Обрабатываются триггеры для man-db (2.10.2-1) …
+Обрабатываются триггеры для libc-bin (2.35-0ubuntu3.4) …
+alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork$ 
+
+4. Установить и удалить deb-пакет с помощью dpkg.
+
+alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork$ sudo wget https://download.docker.com/linux/ubuntu/dists/jammy/pool/stable/amd64/docker-ce-cli_20.10.13~3-0~ubuntu-jammy_amd64.deb
+--2023-12-04 20:35:44--  https://download.docker.com/linux/ubuntu/dists/jammy/pool/stable/amd64/docker-ce-cli_20.10.13~3-0~ubuntu-jammy_amd64.deb
+Распознаётся download.docker.com (download.docker.com)… 65.9.66.72, 65.9.66.54, 65.9.66.46, ...
+Подключение к download.docker.com (download.docker.com)|65.9.66.72|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 200 OK
+Длина: 40955778 (39M) [binary/octet-stream]
+Сохранение в: ‘docker-ce-cli_20.10.13~3-0~ubuntu-jammy_amd64.deb’
+
+docker-ce-cli_20.10.13~3-0~u 100%[==============================================>]  39,06M  4,70MB/s    за 9,1s    
+
+2023-12-04 20:35:53 (4,29 MB/s) - ‘docker-ce-cli_20.10.13~3-0~ubuntu-jammy_amd64.deb’ сохранён [40955778/40955778]
+
+alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork$ sudo dpkg -i docker-ce-cli_20.10.13~3-0~ubuntu-jammy_amd64.deb
+dpkg: предупреждение: снижение версии docker-ce-cli с 5:24.0.7-1~ubuntu.22.04~jammy до 5:20.10.13~3-0~ubuntu-jammy
+(Чтение базы данных … на данный момент установлено 231186 файлов и каталогов.)
+Подготовка к распаковке docker-ce-cli_20.10.13~3-0~ubuntu-jammy_amd64.deb …
+Распаковывается docker-ce-cli (5:20.10.13~3-0~ubuntu-jammy) на замену (5:24.0.7-1~ubuntu.22.04~jammy) …
+Заменено файлами из установленного пакета docker-buildx-plugin (0.11.2-1~ubuntu.22.04~jammy) …
+Настраивается пакет docker-ce-cli (5:20.10.13~3-0~ubuntu-jammy) …
+Обрабатываются триггеры для man-db (2.10.2-1) …
+alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork$ sudo dpkg -r docker-ce-cli 
+dpkg: проблемы с зависимостями не позволяют удалить пакет docker-ce-cli:
+ docker-ce зависит от docker-ce-cli.
+
+dpkg: ошибка при обработке пакета docker-ce-cli (--remove):
+ проблемы с зависимостями — не удаляется
+При обработке следующих пакетов произошли ошибки:
+ docker-ce-cli
+alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork$ sudo dpkg -r docker-ce
+(Чтение базы данных … на данный момент установлено 231184 файла и каталога.)
+Удаляется docker-ce (5:24.0.7-1~ubuntu.22.04~jammy) …
+alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork$ sudo dpkg -r docker-ce-cli 
+(Чтение базы данных … на данный момент установлено 231175 файлов и каталогов.)
+Удаляется docker-ce-cli (5:20.10.13~3-0~ubuntu-jammy) …
+Обрабатываются триггеры для man-db (2.10.2-1) …
+alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork$ 
+
+
+
+
+
+
+
