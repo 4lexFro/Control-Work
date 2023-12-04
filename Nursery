@@ -1,0 +1,38 @@
+1. Используя команду cat в терминале операционной системы Linux, создать
+два файла Домашние животные (заполнив файл собаками, кошками,
+хомяками) и Вьючные животными заполнив файл Лошадьми, верблюдами и
+ослы), а затем объединить их. Просмотреть содержимое созданного файла.
+Переименовать файл, дав ему новое имя (Друзья человека).
+
+alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork$ mkdir Nursery
+alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork$ cd Nursery
+alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork/Nursery$ cat > pets
+dogs
+cats
+hamsters
+alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork/Nursery$ cat > pack_animals
+horses
+camels
+donkeys
+alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork/Nursery$ cat pets pack_animals > animals
+alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork/Nursery$ nano animals
+
+  GNU nano 6.2                         animals                                  
+dogs
+cats
+hamsters
+horses
+camels
+donkeys
+
+
+                             [ Прочитано 6 строк ]
+^G Справка   ^O Записать  ^W Поиск     ^K Вырезать  ^T Выполнить ^C Позиция
+^X Выход     ^R ЧитФайл   ^\ Замена    ^U Вставить  ^J Выровнять ^/ К строке
+
+alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork/Nursery$ mv animals human_friends
+
+2. Создать директорию, переместить файл туда.
+
+alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork/Nursery$ mv human_friends /home/alexfro/GeekBrains/ControlWork/Nursery/New
+
