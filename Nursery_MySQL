@@ -159,6 +159,33 @@ FROM Beasts WHERE Birthday BETWEEN ADDDATE(curdate(), INTERVAL -3 YEAR) AND ADDD
  
 SELECT * FROM Young_Animals;
 
+12. Объединить все таблицы в одну, при этом сохраняя поля, указывающие на
+прошлую принадлежность к старым таблицам
+
+SELECT h.Name, h.Birthday, h.Commands, pa.Genus_Name, ya.Age_In_Month
+FROM Horses h
+LEFT JOIN Young_Animals ya ON ya.Name = h.Name
+LEFT JOIN Pack_Animals pa ON pa.Id = h.Genus_Id
+UNION 
+SELECT d.Name, d.Birthday, d.Commands, pa.Genus_name, ya.Age_In_Month
+FROM Donkeys d 
+LEFT JOIN Young_Animals ya ON ya.Name = d.Name
+LEFT JOIN Pack_Animals pa ON pa.Id = d.Genus_Id
+UNION
+SELECT c.Name, c.Birthday, c.Commands, p.Genus_Name, ya.Age_In_Month
+FROM Cats c
+LEFT JOIN Young_Animals ya ON ya.Name = c.Name
+LEFT JOIN Pets p ON p.Id = c.Genus_Id
+UNION
+SELECT d.Name, d.Birthday, d.Commands, p.Genus_Name, ya.Age_In_Month
+FROM Dogs d
+LEFT JOIN Young_Animals ya ON ya.Name = d.Name
+LEFT JOIN Pets p ON p.Id = d.Genus_Id
+UNION
+SELECT hm.Name, hm.Birthday, hm.Commands, p.Genus_Name, ya.Age_In_Month
+FROM Hamsters hm
+LEFT JOIN Young_Animals ya ON ya.Name = hm.Name
+LEFT JOIN Pets p ON p.Id = hm.Genus_Id;
 
 
 
