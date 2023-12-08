@@ -1,4 +1,4 @@
-﻿package Controller;
+﻿package Nursery_Java.Controller;
 
 public class Counter implements AutoCloseable {
 
