@@ -14,37 +14,53 @@ CREATE TABLE Animals
 
 INSERT INTO Animals (Class_Name)
 VALUES ('вьючные'),
-('домашние');  
+('домашние'); 
 
-
-CREATE TABLE Pack_Animals
-(
-	Id INT AUTO_INCREMENT PRIMARY KEY,
-    Genus_Name VARCHAR (20),
-    Class_Id INT,
-    FOREIGN KEY (Class_Id) REFERENCES Animal_Classes (Id) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-INSERT INTO Pack_Animals (Genus_Name, Class_Id)
-VALUES ('Лошади', 1),
-('Верблюды', 1),  
-('Ослы', 1); 
-    
 CREATE TABLE Pets
 (
-	Id INT AUTO_INCREMENT PRIMARY KEY,
+    Id INT AUTO_INCREMENT PRIMARY KEY,
     Genus_Name VARCHAR (20),
     Class_Id INT,
-    FOREIGN KEY (Class_Id) REFERENCES Animal_Classes (Id) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (Class_Id) REFERENCES Animals (Id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 INSERT INTO Pets (Genus_Name, Class_Id)
-VALUES ('Собаки', 2),
-('Кошки', 2),  
-('Хомяки', 2); 
+VALUES ('Собаки', 1),
+('Кошки', 1),  
+('Хомяки', 1); 
+
+CREATE TABLE Pack_Animals
+(
+    Id INT AUTO_INCREMENT PRIMARY KEY,
+    Genus_Name VARCHAR (20),
+    Class_Id INT,
+    FOREIGN KEY (Class_Id) REFERENCES Animals (Id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+INSERT INTO Pack_Animals (Genus_Name, Class_Id)
+VALUES ('Лошади', 2),
+('Верблюды', 2),  
+('Ослы', 2); 
+    
 
 9. Заполнить низкоуровневые таблицы именами(животных), командами
 которые они выполняют и датами рождения
+
+CREATE TABLE Dogs 
+(       
+    Id INT AUTO_INCREMENT PRIMARY KEY, 
+    Name VARCHAR(20), 
+    Birthday DATE,
+    Commands VARCHAR(50),
+    Genus_Id INT,
+    Foreign KEY (Genus_Id) REFERENCES Pets (Id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+INSERT INTO Dogs (Name, Birthday, Commands, Genus_Id)
+VALUES ('Шарик', '2021-08-03', 'сидеть, лежать', 1),
+('Пушок', '2021-06-04', "сидеть, лапу", 1),  
+('Барбос', '2015-11-01', "место, фас", 1);
+
 
 CREATE TABLE cats 
 (       
@@ -52,8 +68,8 @@ CREATE TABLE cats
     Name VARCHAR(20), 
     Birthday DATE,
     Commands VARCHAR(50),
-    Genus_id int,
-    Foreign KEY (Genus_id) REFERENCES home_animals (Id) ON DELETE CASCADE ON UPDATE CASCADE
+    Genus_Id INT,
+    Foreign KEY (Genus_id) REFERENCES Pets (Id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 INSERT INTO Cats (Name, Birthday, Commands, Genus_Id)
@@ -116,6 +132,11 @@ INSERT INTO Donkeys (Name, Birthday, Commands, Genus_Id)
 VALUES ('Ося', '2013-03-08','голос', 3),
 ('Череп', '2020-03-11', NULL, 3),  
 ('Тормоз', '2022-04-10', 'гони', 3);
+
+10. Удалив из таблицы верблюдов, т.к. верблюдов решили перевезти в другой
+питомник на зимовку. Объединить таблицы лошади, и ослы в одну таблицу
+
+
 
 
 
