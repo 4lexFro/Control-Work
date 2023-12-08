@@ -62,7 +62,7 @@ VALUES ('Шарик', '2021-08-03', 'сидеть, лежать', 1),
 ('Барбос', '2015-11-01', "место, фас", 1);
 
 
-CREATE TABLE cats 
+CREATE TABLE Cats 
 (       
     Id INT AUTO_INCREMENT PRIMARY KEY, 
     Name VARCHAR(20), 
