@@ -137,10 +137,29 @@ VALUES ('Ося', '2013-03-08','голос', 3),
 питомник на зимовку. Объединить таблицы лошади, и ослы в одну таблицу
 
 SET SQL_SAFE_UPDATES = 0;
-DELETE FROM camels;
+DELETE FROM Camels;
 
-SELECT Name, Birthday, Commands FROM horses
-UNION SELECT  Name, Birthday, Commands FROM donkeys;
+SELECT Name, Birthday, Commands FROM Horses
+UNION SELECT  Name, Birthday, Commands FROM Donkeys;
+
+
+11. Создать новую таблицу “молодые животные” в которую попадут все животные старше 1 года, но младше 3 лет и в отдельном столбце с 
+точностью до месяца подсчитать возраст животных в новой таблице
+
+CREATE TEMPORARY TABLE Beasts AS 
+SELECT *, 'Лошади' AS Genus FROM Horses
+UNION SELECT *, 'Ослы' AS Genus FROM Donkeys
+UNION SELECT *, 'Собаки' AS Genus FROM Dogs
+UNION SELECT *, 'Кошки' AS Genus FROM Cats
+UNION SELECT *, 'Хомяки' AS Genus FROM Hamsters;
+
+CREATE TABLE Young_Animals AS
+SELECT Name, Birthday, Commands, Genus, TIMESTAMPDIFF(MONTH, Birthday, CURDATE()) AS Age_In_Month
+FROM Beasts WHERE Birthday BETWEEN ADDDATE(curdate(), INTERVAL -3 YEAR) AND ADDDATE(CURDATE(), INTERVAL -1 YEAR);
+ 
+SELECT * FROM Young_Animals;
+
+
 
 
 
