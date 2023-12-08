@@ -69,7 +69,7 @@ CREATE TABLE Cats
     Birthday DATE,
     Commands VARCHAR(50),
     Genus_Id INT,
-    Foreign KEY (Genus_id) REFERENCES Pets (Id) ON DELETE CASCADE ON UPDATE CASCADE
+    Foreign KEY (Genus_Id) REFERENCES Pets (Id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 INSERT INTO Cats (Name, Birthday, Commands, Genus_Id)
