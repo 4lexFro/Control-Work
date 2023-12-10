@@ -1,4 +1,4 @@
-13.Создать [класс с Инкапсуляцией методов и наследованием по диаграмме](https://github.com/4lexFro/Control-Work/tree/main/Nursery_Java/Model) "Высший класс!))").
+13.Создать [класс с Инкапсуляцией методов и наследованием по диаграмме](https://github.com/4lexFro/Control-Work/tree/main/Nursery_Java/Model "Высший класс!))) 
 
 
 
