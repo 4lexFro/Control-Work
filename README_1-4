@@ -216,9 +216,6 @@ alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork$ sudo dpkg -r docker-ce-cli
 Обрабатываются триггеры для man-db (2.10.2-1) …
 alexfro@alexfro-A320M-S2H:~/GeekBrains/ControlWork$ 
 
-5. Выложить историю команд в терминале ubuntu
-
-Решение *[здесь](https://github.com/4lexFro/Control-Work/blob/main/Terminal_Commands "История комманд")*
 
 
 
